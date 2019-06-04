@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/fodnb/marvelCharacterSearch/issues"
   },
-  "homepage": "https://github.com/fodnb/marvelCharacterSearch#readme"
+  "homepage": "https://github.com/fodnb/marvelCharacterSearch#readme",
+  "dependencies": {
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
 }
