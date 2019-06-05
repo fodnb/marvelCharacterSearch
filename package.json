@@ -4,7 +4,9 @@
   "description": "marvel character search",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,9 @@
   },
   "homepage": "https://github.com/fodnb/marvelCharacterSearch#readme",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "js-md5": "^0.7.3",
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
