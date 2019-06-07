@@ -10,7 +10,6 @@ function IndexPage() {
           content="initial-scale=1.0, width=device-width"
           key="viewport"
         />
-        <link rel="stylesheet" href="static/styles.css"/>
       </Head>
     </div>
   );

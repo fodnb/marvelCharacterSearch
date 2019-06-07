@@ -1,6 +1,7 @@
+import '../styles/styles.css';
 import React from 'react';
 import fetch from 'isomorphic-unfetch';
-import md5 from'js-md5';
+import md5 from 'js-md5';
 import CharacterPage from './CharacterPage';
 
 const publickey = "81c6ebd34a68f8a15e0f05333f23d01e";
@@ -36,37 +37,42 @@ class Character extends React.Component {
         let url = "http://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
         let res = await fetch(url);
         let data = await res.json();
-
+        let er = false;
+        if (data.code === 409 || data.data.total === 0) {
+            er = true;
+        };
 
         // console.log(data.data.results);
-        if(data.data.count != 0  && data !== undefined){
-        let myHero = {
-            name: data.data.results[0].name,
-            img: `${data.data.results[0].thumbnail.path}.${data.data.results[0].thumbnail.extension}`,
-            description: data.data.results[0].description
-        }
-        this.setState({ myHero, error: "" });
-        console.log(data.data.results[0].name);
+        console.log(data);
+        // console.log(data.data.count)
+        if (!er) {
+            let myHero = {
+                name: data.data.results[0].name,
+                img: `${data.data.results[0].thumbnail.path}.${data.data.results[0].thumbnail.extension}`,
+                description: data.data.results[0].description
+            }
+            this.setState({ myHero, error: "" });
+            console.log(data.data.results[0].name);
         } else {
-            this.setState({error: "No results found in the Marvel Database.  Please try another Marvel Hero."})
+            this.setState({ error: "No results found in the Marvel Database.  Please try another Marvel Hero." })
         }
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         console.log(this.state.value);
         this.getInitialProps();
         e.preventDefault();
-        this.setState({value: ""});
+        this.setState({ value: "" });
     }
 
-    handleChange(e){
-        this.setState({value: e.target.value});
+    handleChange(e) {
+        this.setState({ value: e.target.value });
         console.log('handleChange');
     }
 
-    clearHero(){
+    clearHero() {
         console.log("clear")
-        this.setState({myHero: null});
+        this.setState({ myHero: null });
     }
 
 
@@ -74,23 +80,72 @@ class Character extends React.Component {
 
         return (
 
-            <div>
-                
-                
-                {this.state.error ? <p>{this.state.error}</p> : ""}                
+            <div className="content">
+
+
                 {this.state.myHero ?
                     <CharacterPage
                         img={this.state.myHero.img}
                         name={this.state.myHero.name}
                         description={this.state.myHero.description}
                         clear={this.clearHero}
-                    /> 
-                    : 
+                    />
+                    :
                     <form onSubmit={this.handleSubmit}>
-                        <input name="heroName" value={this.state.value} type="text" onChange={this.handleChange}/>
-                        <input type="submit"/>
+                        <input name="heroName" value={this.state.value} type="text" autocomplete="off" onChange={this.handleChange} autofocus="true"/>
+                        
+                        <input type="submit" />
                     </form>
                 }
+                {this.state.error ? <p className="error">{this.state.error}</p> : ""}
+                <style jsx>{`
+                    
+                    form {
+                        margin-top: 200px;
+                        text-align: center;
+                    }
+                    input {
+                        border-radius: 4px;
+                        font-size: 24px;
+                    }
+
+                    input:first-child {
+                    background: white;
+                    margin-right: 10px;
+                    color: black;   
+                    text-align: left;
+                    font-weight: 700;
+                    }
+                    .center {
+                    text-align: center;
+                    }
+
+                    input:nth-child(2) {
+                    width: 8em;
+                    padding-top: 4px;
+                    padding-bottom: 4px;
+                    border: 2px solid red;
+                    background: red;
+                    color: white;
+                    font-weight: 700;
+                    }
+
+                    input:focus{
+                    border: none;
+                    outline: none;
+                    }
+        
+
+                    .error {
+                        margin-top: 25px;
+                        font-size: 24px;
+                        color: red;
+                        text-shadow: 2px 2px 2px maroon;
+                        text-align: center; 
+                  }
+
+
+                `}</style>
             </div>
         )
     }
