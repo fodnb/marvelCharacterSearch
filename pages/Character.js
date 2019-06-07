@@ -27,6 +27,7 @@ class Character extends React.Component {
         this.getInitialProps = this.getInitialProps.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.clearHero = this.clearHero.bind(this);
     }
 
 
@@ -37,8 +38,8 @@ class Character extends React.Component {
         let data = await res.json();
 
 
-        console.log(data.data.results);
-        if(data.data.count != 0){
+        // console.log(data.data.results);
+        if(data.data.count != 0  && data !== undefined){
         let myHero = {
             name: data.data.results[0].name,
             img: `${data.data.results[0].thumbnail.path}.${data.data.results[0].thumbnail.extension}`,
@@ -63,6 +64,10 @@ class Character extends React.Component {
         console.log('handleChange');
     }
 
+    clearHero(){
+        console.log("clear")
+        this.setState({myHero: null});
+    }
 
 
     render() {
@@ -70,17 +75,21 @@ class Character extends React.Component {
         return (
 
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input name="heroName" value={this.state.value} type="text" onChange={this.handleChange}/>
-                    <input type="submit"/>
-                </form>
+                
+                
                 {this.state.error ? <p>{this.state.error}</p> : ""}                
                 {this.state.myHero ?
                     <CharacterPage
                         img={this.state.myHero.img}
                         name={this.state.myHero.name}
                         description={this.state.myHero.description}
-                    /> : ""
+                        clear={this.clearHero}
+                    /> 
+                    : 
+                    <form onSubmit={this.handleSubmit}>
+                        <input name="heroName" value={this.state.value} type="text" onChange={this.handleChange}/>
+                        <input type="submit"/>
+                    </form>
                 }
             </div>
         )
