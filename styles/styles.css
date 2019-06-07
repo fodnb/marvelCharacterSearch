@@ -1,6 +1,17 @@
+* {
+  background: black;
+  color: white;
+  margin: 0 auto;  
+}
+
 header {
   font-weight: bold; 
   background: red;
   color: white;
   text-align: center; 
+}
+
+img {
+  max-width: 150px;
+  max-height: 200px;
 }
