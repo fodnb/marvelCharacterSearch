@@ -13,7 +13,7 @@ hash.update(timestamp + privatekey + publickey);
 hash.hex();
 let limit = 100;
 let hero = name;
-let url = "http://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
+let url = "https://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
 let res = await fetch(url);
 let data = await res.json();
 console.log(data.data.results);
