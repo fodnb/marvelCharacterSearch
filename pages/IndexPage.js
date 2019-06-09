@@ -10,6 +10,8 @@ function IndexPage() {
           content="initial-scale=1.0, width=device-width"
           key="viewport"
         />
+
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
       </Head>
     </div>
   );
