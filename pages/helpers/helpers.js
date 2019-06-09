@@ -18,7 +18,8 @@ let res = await fetch(url, {
     // method: 'POST', // or 'PUT'
     // body: JSON.stringify(data), // data can be `string` or {object}!
     headers:{
-      'Accept': '*/*'
+      'Accept': '*/*',
+      'If-None-Match': 'f0fbae65eb2f8f28bdeea0a29be8749a4e67acb3'
     }
   });
 
