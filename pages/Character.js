@@ -34,7 +34,7 @@ class Character extends React.Component {
 
     getInitialProps = async function () {
         let hero = this.state.value;
-        let url = "http://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
+        let url = "https://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
         let res = await fetch(url);
         let data = await res.json();
         let er = false;
