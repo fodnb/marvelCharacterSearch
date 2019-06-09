@@ -27,22 +27,3 @@ let res = axios.get(url).then(data=>{
     console.log('myhero axios');
     return myHero;
 });
-
-// let res = await fetch(url,{
-//     method:  'GET',
-//     headers:{
-//         'Accept': '*/*'
-//       }
-// });
-
-// let data = await res.json();
-// console.log(data.data.results);
-// let myHero = {
-//     name: data.data.results[0].name,
-//     img: `${data.data.results[0].thumbnail.path}.${data.data.results[0].thumbnail.extension}`,
-//     description: data.data.results[0].description
-// };
-
-//     return myHero;
-
-// };
