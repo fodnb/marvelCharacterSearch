@@ -14,13 +14,13 @@ hash.hex();
 let limit = 100;
 let hero = name;
 let url = "https://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
-let res = await fetch(url, {
-    // method: 'POST', // or 'PUT'
-    // body: JSON.stringify(data), // data can be `string` or {object}!
+let res = await fetch(url,{
+    method:  'POST',
     headers:{
-      'Accept': '*/*',
-      'If-None-Match': 'f0fbae65eb2f8f28bdeea0a29be8749a4e67acb3'
+        'Accept': '*/*'
+      }
     }
+    
   });
 
 let data = await res.json();
