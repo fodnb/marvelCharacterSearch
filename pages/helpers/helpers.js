@@ -15,7 +15,7 @@ let limit = 100;
 let hero = name;
 let url = "https://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
 let res = await fetch(url,{
-    method:  'POST',
+    method:  'GET',
     headers:{
         'Accept': '*/*'
       }
