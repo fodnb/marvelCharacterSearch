@@ -19,9 +19,7 @@ let res = await fetch(url,{
     headers:{
         'Accept': '*/*'
       }
-    }
-    
-  });
+});
 
 let data = await res.json();
 console.log(data.data.results);
