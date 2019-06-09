@@ -1,4 +1,5 @@
-import fetch from 'isomorphic-unfetch';
+// import fetch from 'isomorphic-unfetch';
+import axios from 'axios';
 const md5 = require('js-md5');
 
 export default  async function getCharacter(name){
@@ -14,21 +15,34 @@ hash.hex();
 let limit = 100;
 let hero = name;
 let url = "https://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
-let res = await fetch(url,{
-    method:  'GET',
-    headers:{
-        'Accept': '*/*'
-      }
+
+let res = axios.get(url).then(data=>{
+    return data.json();
+}).then(data=>{
+    let myHero = {
+        name: data.data.results[0].name,
+        img: `${data.data.results[0].thumbnail.path}.${data.data.results[0].thumbnail.extension}`,
+        description: data.data.results[0].description
+    };
+    console.log('myhero axios');
+    return myHero;
 });
 
-let data = await res.json();
-console.log(data.data.results);
-let myHero = {
-    name: data.data.results[0].name,
-    img: `${data.data.results[0].thumbnail.path}.${data.data.results[0].thumbnail.extension}`,
-    description: data.data.results[0].description
-};
+// let res = await fetch(url,{
+//     method:  'GET',
+//     headers:{
+//         'Accept': '*/*'
+//       }
+// });
 
-    return myHero;
+// let data = await res.json();
+// console.log(data.data.results);
+// let myHero = {
+//     name: data.data.results[0].name,
+//     img: `${data.data.results[0].thumbnail.path}.${data.data.results[0].thumbnail.extension}`,
+//     description: data.data.results[0].description
+// };
 
-};
+//     return myHero;
+
+// };
