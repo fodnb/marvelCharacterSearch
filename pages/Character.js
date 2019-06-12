@@ -89,7 +89,7 @@ class Character extends React.Component {
                     />
                     :
                     <form onSubmit={this.handleSubmit}>
-                        <input name="heroName" value={this.state.value} type="text" autocomplete="off" onChange={this.handleChange} autofocus="true"/>
+                        <input name="heroName" value={this.state.value} type="text" autoComplete="off" onChange={this.handleChange} autoFocus={true}/>
                         
                         <input type="submit" />
                     </form>

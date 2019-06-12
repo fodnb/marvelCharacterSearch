@@ -1,12 +1,12 @@
 import Footer from './Footer';
 import Header from './Header';
-import Page from './Character';
+import Character from './Character';
 
 
 const Index = () => (
     <div>
         <Header/>
-        <Page />
+        <Character />
         <Footer />
     </div>
 );

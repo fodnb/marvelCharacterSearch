@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([["e738"],{"C+7Y":function(n,o){},sxQA:function(n,o,w){(window.__NEXT_P=window.__NEXT_P||[]).push(["/Footer",function(){var n=w("C+7Y");return{page:n.default||n}}])}},[["sxQA","5d41"]]]);

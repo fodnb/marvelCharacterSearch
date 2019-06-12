@@ -1,5 +1,7 @@
-export default Footer = () => (
-    <div>
+const Footer = () => (
+    <footer>
         <p>&#x00A9;</p>
-    </div>
-)
+    </footer>
+);
+
+export default Footer;

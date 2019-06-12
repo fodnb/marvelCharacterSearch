@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([["cd0b"],{PeHl:function(n,w,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/Search",function(){var n=o("XSxZ");return{page:n.default||n}}])},XSxZ:function(n,w){}},[["PeHl","5d41"]]]);

@@ -14,7 +14,7 @@ handleChange(){
     <h2 className="name">{this.props.name}</h2>
     <img className="img" src={this.props.img} alt={this.props.name}/>
     <p className="description">{this.props.description}</p>
-    <button className="clearButton" onClick={this.handleChange} autofocus="true">New Search</button>
+    <button className="clearButton" onClick={this.handleChange} autoFocus={true}>New Search</button>
     <style jsx>{`
         .img {
             height: 300px;
