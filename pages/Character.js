@@ -14,9 +14,6 @@ var hash = md5.create();
 hash.update(timestamp + privatekey + publickey);
 hash.hex();
 
-
-
-
 class Character extends React.Component {
     constructor(props) {
         super(props);

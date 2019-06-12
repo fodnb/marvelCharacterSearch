@@ -7,7 +7,7 @@ const Header = () => (
         h1 {
             margin-bottom: 20px;
         }    
-        
+        <div>$name - $props.name</div>
     `}</style>
 </header>
 );
