@@ -13,7 +13,7 @@ handleChange(){
     <div className="content">
     <h2 className="name">{this.props.name}</h2>
     <img className="img" src={this.props.img} alt={this.props.name}/>
-    <p className="description">{this.props.description}</p>
+    <p className="description">{this.props.description} <br/> Data provided by Marvel. © 2014 Marvel</p>
     <button className="clearButton" onClick={this.handleChange} autoFocus={true}>New Search</button>
     <style jsx>{`
         .img {
