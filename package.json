@@ -23,8 +23,6 @@
   "homepage": "https://github.com/fodnb/marvelCharacterSearch#readme",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
     "isomorphic-unfetch": "^3.0.0",
     "js-md5": "^0.7.3",
     "next": "^8.1.0",

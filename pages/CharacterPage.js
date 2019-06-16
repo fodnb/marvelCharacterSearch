@@ -27,31 +27,33 @@ handleChange(){
         }
 
         .name {
-            margin-top: 0;
+            margin-top: 20px;
             font-size: 48px;
             text-shadow: 2px 2px 2px red;
-            margin-bottom: 20px;
+            margin-bottom: 0;
         }
         
         .description {
             max-width: 60%;
-            margin-top: 2em;
-            margin-bottom: 2em;
+            margin-top: 1em;
+            margin-bottom: 1em;
         }
 
         .clearButton {
-            width: 10em;
-            height: 2em;
+            min-width: 10em;
+            min-height: 2em;
             font-size: 2em;
             border-radius: 2em;
             font-weight: 700;
             background: red;
             text-shadow: 2px 2px 2px black;
+            z-position: 0;
         }
 
         .clearButton:focus{
             border: none;
             outline: none;
+            z-position: 0;
         }
 
     `}</style>

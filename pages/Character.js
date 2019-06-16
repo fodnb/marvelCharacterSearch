@@ -32,13 +32,16 @@ class Character extends React.Component {
     getInitialProps = async function () {
         let hero = this.state.value;
         let url = "https://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
+        console.log(url);
         let res = await fetch(url);
         let data = await res.json();
+    
         let er = false;
+        console.log(er);
         if (data.code === 409 || data.data.total === 0) {
             er = true;
         };
-
+        console.log(data.code);
         // console.log(data.data.results);
         console.log(data);
         // console.log(data.data.count)
@@ -52,6 +55,9 @@ class Character extends React.Component {
             console.log(data.data.results[0].name);
         } else {
             this.setState({ error: "No results found in the Marvel Database.  Please try another Marvel Hero." })
+        }
+        if(er){
+            console.log(er);
         }
     }
 
@@ -90,7 +96,7 @@ class Character extends React.Component {
                     :
                     <form onSubmit={this.handleSubmit}>
                         <input name="heroName" value={this.state.value} type="text" autoComplete="off" onChange={this.handleChange} autoFocus={true}/>
-                        
+         
                         <input type="submit" />
                     </form>
                 }
@@ -112,6 +118,7 @@ class Character extends React.Component {
                     color: black;   
                     text-align: left;
                     font-weight: 700;
+                    padding-left: .5em;
                     }
                     .center {
                     text-align: center;
@@ -131,7 +138,6 @@ class Character extends React.Component {
                     border: none;
                     outline: none;
                     }
-        
 
                     .error {
                         margin-top: 25px;
@@ -140,8 +146,6 @@ class Character extends React.Component {
                         text-shadow: 2px 2px 2px maroon;
                         text-align: center; 
                   }
-
-
                 `}</style>
             </div>
         )
