@@ -33,8 +33,9 @@ class Character extends React.Component {
         let hero = this.state.value;
         hero = hero.replace(/ /g, "+");
         let url = "https://gateway.marvel.com/v1/public/characters?ts=" + timestamp + "&apikey=" + publickey + "&hash=" + hash + "&limit=" + limit + "&nameStartsWith=" + hero;
-        console.log(url);
         let res = await fetch(url);
+        const errorCode = res.statusCode > 200 ? res.statusCode : false;
+        console.log(errorCode);
         let data = await res.json();
     
         let er = false;

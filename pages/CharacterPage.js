@@ -47,7 +47,6 @@ handleChange(){
             font-weight: 700;
             background: red;
             text-shadow: 2px 2px 2px black;
-            z-position: 0;
         }
 
         .clearButton:focus{

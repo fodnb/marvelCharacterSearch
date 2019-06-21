@@ -6,13 +6,11 @@ const Footer = () => (
         </div>
         <style jsx>
             {`
-                .footerContent {
-                }
+
                 .footer {
-                    margin: 0 auto;
-                    position: fixed;
                     bottom: 0;
-                    left: 0;
+                    position: fixed;
+                    height: 30px;
                     width: 100%;
                     padding: 20px 0;
                     font-size: 20px;
